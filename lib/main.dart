@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:weather_home/scr/features/main_page/main_page.dart';
+import 'package:weather_home/scr/features/weather_page/main_page.dart';
 
 void main() {
   runApp(const Main());

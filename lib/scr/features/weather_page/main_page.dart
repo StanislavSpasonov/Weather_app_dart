@@ -5,6 +5,8 @@ import 'package:weather_home/scr/core/styles/colors/colors.dart';
 import 'package:weather_home/scr/core/styles/text_styles/text_styles.dart';
 import 'package:weather_home/scr/core/widgets/app_bar_icon_button.dart';
 import 'package:weather_home/scr/core/widgets/main_padding.dart';
+import 'package:http/http.dart' as http;
+import 'package:weather_home/scr/features/city_search_page/city_search_page.dart';
 
 const conditionalWeather = '9º ☁️';
 const descriptionWather = 'You will need 🧣 and 🧤 in';
@@ -37,7 +39,8 @@ class MainPage extends StatelessWidget {
             AppBarIconButton(
               icon: AppIcons.locationCity,
               onPressed: () {
-                //todo add list city
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => CitySearchPage()));
               },
             ),
           ],
@@ -62,7 +65,26 @@ class MainPage extends StatelessWidget {
                 city,
                 style: AppTextStyles.subTitle,
                 textAlign: TextAlign.right,
-              )
+              ),
+              TextButton(
+                onPressed: () async {
+                  final url = Uri.http(
+                    'dataservice.accuweather.com',
+                    'currentconditions/v1/215854',
+                    {'apikey': 'rYV6RIu503f0dI4vSwuX8QfoygoNZrYq'},
+                  );
+                  print('start');
+                  print(url);
+                  try {
+                    var response = await http.get(url);
+                    print('get data');
+                    print(response.statusCode);
+                  } catch (e) {
+                    print(e);
+                  }
+                },
+                child: Text('get Wether'),
+              ),
             ],
           ),
         ),
