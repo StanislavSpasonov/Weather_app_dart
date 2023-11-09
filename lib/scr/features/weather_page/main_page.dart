@@ -6,7 +6,7 @@ import 'package:weather_home/scr/core/styles/text_styles/text_styles.dart';
 import 'package:weather_home/scr/core/widgets/app_bar_icon_button.dart';
 import 'package:weather_home/scr/core/widgets/main_padding.dart';
 import 'package:http/http.dart' as http;
-import 'package:weather_home/scr/features/city_search_page/city_search_page.dart';
+import 'package:weather_home/scr/features/city_search_page/presentation/city_search_page.dart';
 
 const conditionalWeather = '9º ☁️';
 const descriptionWather = 'You will need 🧣 and 🧤 in';
